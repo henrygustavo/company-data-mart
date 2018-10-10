@@ -16,7 +16,7 @@ SET @LoopDate = @StartDate
 WHILE @LoopDate <= @EndDate
 BEGIN
  -- add a record into the date dimension table for this date
- INSERT INTO DIM_FECHA(ANIO,MES,DIA,Hora) VALUES (Year(@LoopDate),Month(@LoopDate), Day(@LoopDate), DATEPART(HOUR, @LoopDate))
+ INSERT INTO DIM_FECHA(FECHA, ANIO,MES,DIA,Hora) VALUES (@LoopDate,Year(@LoopDate),Month(@LoopDate), Day(@LoopDate), DATEPART(HOUR, @LoopDate))
 
  
  -- increment the LoopDate by 1 day before
@@ -31,3 +31,6 @@ END
 --truncate table  dim_fecha
 
 --select * from  dim_fecha
+-----------------select v.*,f.ID_FECHA  from venta  v inner join fecha f  on  FORMAT(v.fecha , 'MM/dd/yyyy HH')  = FORMAT(F.FECHA, 'MM/dd/yyyy HH')
+
+

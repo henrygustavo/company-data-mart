@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="PopulateDatamart"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{77E38DFC-ED15-4309-A6F9-C9CECD10B9C5}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{BD75BC42-C3FF-4DC7-8BBC-32867920C856}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2021,31 +2021,31 @@
     design-time-name="Package\POPULATE DIM TABLES">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="145,42"
-          Id="Package\POPULATE DIM TABLES\DIM_CLIENTE"
-          TopLeft="361,197" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\POPULATE DIM TABLES\DIM_TIENDA"
-          TopLeft="824,190" />
-        <NodeLayout
-          Size="116,42"
-          Id="Package\POPULATE DIM TABLES\TIENDA"
-          TopLeft="864,60" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="159,42"
           Id="Package\POPULATE DIM TABLES\DIM_PRODUCTO"
           TopLeft="589,449" />
         <NodeLayout
+          Size="133,42"
+          Id="Package\POPULATE DIM TABLES\PRODUCTO"
+          TopLeft="593,351" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\POPULATE DIM TABLES\TIENDA"
+          TopLeft="864,60" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\POPULATE DIM TABLES\DIM_TIENDA"
+          TopLeft="824,190" />
+        <NodeLayout
           Size="120,42"
           Id="Package\POPULATE DIM TABLES\CLIENTE"
           TopLeft="368,70" />
         <NodeLayout
-          Size="133,42"
-          Id="Package\POPULATE DIM TABLES\PRODUCTO"
-          TopLeft="593,351" />
+          Size="145,42"
+          Id="Package\POPULATE DIM TABLES\DIM_CLIENTE"
+          TopLeft="361,197" />
         <EdgeLayout
           Id="Package\POPULATE DIM TABLES.Paths[Salida de origen de OLE DB2]"
           TopLeft="659.5,393">
@@ -2077,7 +2077,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2111,7 +2113,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2133,14 +2137,16 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\POPULATE DIM TABLES\DIM_CLIENTE">
+    design-time-name="Package\POPULATE DIM TABLES\DIM_PRODUCTO">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2153,7 +2159,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\POPULATE DIM TABLES\DIM_TIENDA">
+    design-time-name="Package\POPULATE DIM TABLES\PRODUCTO">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2179,7 +2185,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\POPULATE DIM TABLES\DIM_PRODUCTO">
+    design-time-name="Package\POPULATE DIM TABLES\DIM_TIENDA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2205,7 +2211,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\POPULATE DIM TABLES\PRODUCTO">
+    design-time-name="Package\POPULATE DIM TABLES\DIM_CLIENTE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2221,7 +2227,7 @@
     design-time-name="Package\POPULATE DIM TABLES TYPE">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="127,42"
           Id="Package\POPULATE DIM TABLES TYPE\DISTRITO"
@@ -2265,7 +2271,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2287,7 +2295,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2309,7 +2319,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
