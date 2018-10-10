@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="PopulateDatamart"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{BD75BC42-C3FF-4DC7-8BBC-32867920C856}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{39F2C433-ADA9-4A93-AD7F-6DC27EB7C115}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,6 +43,7 @@
       DTS:refId="Package\POPULATE DIM TABLES"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="POPULATE DIM TABLES"
+      DTS:Disabled="True"
       DTS:DTSID="{36dc3990-9a98-428d-b3c7-dfd4abcf6bab}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1112,6 +1113,7 @@
       DTS:refId="Package\POPULATE DIM TABLES TYPE"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="POPULATE DIM TABLES TYPE"
+      DTS:Disabled="True"
       DTS:DTSID="{724744C3-94DC-4537-9984-38997A28EFA5}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1924,7 +1926,1344 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\POPULATE FACT TABLES\DIM_FECHA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DIM_FECHA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DIM_FECHA]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [ID_FECHA]
+      ,[ANIO]
+      ,[MES]
+      ,[DIA]
+      ,[HORA]
+      ,CONVERT(varchar(20), FORMAT([FECHA] , 'MM/dd/yyyy HH')) as 'FECHAS'
+  FROM [dbo].[DIM_FECHA]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\POPULATE FACT TABLES\DIM_FECHA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destination]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destination]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[ID_FECHA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[ID_FECHA]"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[ID_FECHA]"
+                      name="ID_FECHA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[ANIO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[ANIO]"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[ANIO]"
+                      name="ANIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[MES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[MES]"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[MES]"
+                      name="MES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[DIA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[DIA]"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[DIA]"
+                      name="DIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[HORA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[HORA]"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[HORA]"
+                      name="HORA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[FECHAS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[FECHAS]"
+                      length="20"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[FECHAS]"
+                      name="FECHAS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[ID_FECHA]"
+                      dataType="i4"
+                      name="ID_FECHA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[ANIO]"
+                      dataType="i4"
+                      name="ANIO" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[MES]"
+                      dataType="i4"
+                      name="MES" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[DIA]"
+                      dataType="i4"
+                      name="DIA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[HORA]"
+                      dataType="i4"
+                      name="HORA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].ExternalColumns[FECHAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="FECHAS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[ID_FECHA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[ID_FECHA]"
+                      name="ID_FECHA" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[ANIO]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[ANIO]"
+                      name="ANIO" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[MES]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[MES]"
+                      name="MES" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[DIA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[DIA]"
+                      name="DIA" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[HORA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[HORA]"
+                      name="HORA" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[FECHAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[FECHAS]"
+                      name="FECHAS" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\POPULATE FACT TABLES\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[FECHAS]"
+                      cachedCodepage="1252"
+                      cachedComparisonFlags="1"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FECHAS"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[FECHAS]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_VENTA]"
+                      cachedDataType="i4"
+                      cachedName="ID_VENTA"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_VENTA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_TIENDA]"
+                      cachedDataType="i4"
+                      cachedName="ID_TIENDA"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_TIENDA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_CLIENTE]"
+                      cachedDataType="i4"
+                      cachedName="ID_CLIENTE"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_CLIENTE]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_PRODUCTO]"
+                      cachedDataType="i4"
+                      cachedName="ID_PRODUCTO"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_PRODUCTO]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[MONEDA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="MONEDA"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[MONEDA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[IMPORTE]"
+                      cachedDataType="numeric"
+                      cachedName="IMPORTE"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[IMPORTE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input].Columns[FECHAS]"
+                      cachedCodepage="1252"
+                      cachedComparisonFlags="1"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FECHAS"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[FECHAS]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input].Columns[ID_FECHA]"
+                      cachedDataType="i4"
+                      cachedName="ID_FECHA"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[ID_FECHA]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]"
+                      name="ID_VENTA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_VENTA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_TIENDA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_TIENDA]"
+                      name="ID_TIENDA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_TIENDA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_CLIENTE]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_CLIENTE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_PRODUCTO]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_PRODUCTO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[MONEDA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[MONEDA]"
+                      name="MONEDA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[MONEDA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[IMPORTE]"
+                      dataType="numeric"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[IMPORTE]"
+                      name="IMPORTE"
+                      precision="18"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[IMPORTE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_FECHA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_FECHA]"
+                      name="ID_FECHA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input].Columns[ID_FECHA]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\POPULATE FACT TABLES\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FACT_VENTA]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\POPULATE FACT TABLES\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destination]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destination]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_VENTA]"
+                      cachedDataType="i4"
+                      cachedName="ID_VENTA"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_VENTA]"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TIENDA]"
+                      cachedDataType="i4"
+                      cachedName="ID_TIENDA"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIENDA]"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_TIENDA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
+                      cachedDataType="i4"
+                      cachedName="ID_CLIENTE"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_CLIENTE]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PRODUCTO]"
+                      cachedDataType="i4"
+                      cachedName="ID_PRODUCTO"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_PRODUCTO]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MONEDA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="MONEDA"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONEDA]"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[MONEDA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IMPORTE]"
+                      cachedDataType="numeric"
+                      cachedName="IMPORTE"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMPORTE]"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[IMPORTE]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_FECHA]"
+                      cachedDataType="i4"
+                      cachedName="ID_FECHA"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_FECHA]"
+                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_FECHA]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_VENTA]"
+                      dataType="i4"
+                      name="ID_VENTA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIENDA]"
+                      dataType="i4"
+                      name="ID_TIENDA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                      dataType="i4"
+                      name="ID_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                      dataType="i4"
+                      name="ID_PRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_FECHA]"
+                      dataType="i4"
+                      name="ID_FECHA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONEDA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="MONEDA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMPORTE]"
+                      dataType="numeric"
+                      name="IMPORTE"
+                      precision="18"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\POPULATE FACT TABLES\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="ORDENAR  FECHA VENTA"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[ID_VENTA]"
+                      cachedDataType="i4"
+                      cachedName="ID_VENTA"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_VENTA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[ID_TIENDA]"
+                      cachedDataType="i4"
+                      cachedName="ID_TIENDA"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_TIENDA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[ID_CLIENTE]"
+                      cachedDataType="i4"
+                      cachedName="ID_CLIENTE"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[ID_PRODUCTO]"
+                      cachedDataType="i4"
+                      cachedName="ID_PRODUCTO"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[MONEDA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="MONEDA"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[MONEDA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[IMPORTE]"
+                      cachedDataType="numeric"
+                      cachedName="IMPORTE"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[IMPORTE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[FECHAS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FECHAS"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[FECHAS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_VENTA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_VENTA]"
+                      name="ID_VENTA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_VENTA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_TIENDA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_TIENDA]"
+                      name="ID_TIENDA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_TIENDA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_CLIENTE]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_PRODUCTO]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[MONEDA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[MONEDA]"
+                      name="MONEDA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[MONEDA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[IMPORTE]"
+                      dataType="numeric"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[IMPORTE]"
+                      name="IMPORTE"
+                      precision="18"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[IMPORTE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[FECHAS]"
+                      codePage="1252"
+                      comparisonFlags="1"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[FECHAS]"
+                      name="FECHAS"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[FECHAS]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="ORDENAR POR FECHA"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input].Columns[ID_FECHA]"
+                      cachedDataType="i4"
+                      cachedName="ID_FECHA"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[ID_FECHA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input].Columns[ANIO]"
+                      cachedDataType="i4"
+                      cachedName="ANIO"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[ANIO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input].Columns[MES]"
+                      cachedDataType="i4"
+                      cachedName="MES"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[MES]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input].Columns[DIA]"
+                      cachedDataType="i4"
+                      cachedName="DIA"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[DIA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input].Columns[HORA]"
+                      cachedDataType="i4"
+                      cachedName="HORA"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[HORA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input].Columns[FECHAS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FECHAS"
+                      lineageId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[FECHAS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[ID_FECHA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[ID_FECHA]"
+                      name="ID_FECHA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[ID_FECHA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[ANIO]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[ANIO]"
+                      name="ANIO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[ANIO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[MES]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[MES]"
+                      name="MES">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[MES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[DIA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[DIA]"
+                      name="DIA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[DIA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[HORA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[HORA]"
+                      name="HORA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[HORA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[FECHAS]"
+                      codePage="1252"
+                      comparisonFlags="1"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[FECHAS]"
+                      name="FECHAS"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output].Columns[FECHAS]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\POPULATE FACT TABLES\VENTA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="VENTA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [ID_VENTA]
+      ,[ID_TIENDA]
+      ,[ID_CLIENTE]
+      ,[ID_PRODUCTO]
+    ,CONVERT(varchar(20), FORMAT([FECHA] , 'MM/dd/yyyy HH')) as 'FECHAS'
+      ,[MONEDA]
+      ,[IMPORTE]
+  FROM [dbo].[VENTA]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\POPULATE FACT TABLES\VENTA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Origin]"
+                  connectionManagerRefId="Package.ConnectionManagers[Origin]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_VENTA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_VENTA]"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_VENTA]"
+                      name="ID_VENTA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_TIENDA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_TIENDA]"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_TIENDA]"
+                      name="ID_TIENDA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[MONEDA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[MONEDA]"
+                      length="1"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[MONEDA]"
+                      name="MONEDA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[IMPORTE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[IMPORTE]"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[IMPORTE]"
+                      name="IMPORTE"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[FECHAS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[FECHAS]"
+                      length="20"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[FECHAS]"
+                      name="FECHAS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_VENTA]"
+                      dataType="i4"
+                      name="ID_VENTA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_TIENDA]"
+                      dataType="i4"
+                      name="ID_TIENDA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                      dataType="i4"
+                      name="ID_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                      dataType="i4"
+                      name="ID_PRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[MONEDA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="MONEDA" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[IMPORTE]"
+                      dataType="numeric"
+                      name="IMPORTE"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[FECHAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="FECHAS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_VENTA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_VENTA]"
+                      name="ID_VENTA" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_TIENDA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_TIENDA]"
+                      name="ID_TIENDA" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[FECHAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[FECHAS]"
+                      name="FECHAS" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[MONEDA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[MONEDA]"
+                      name="MONEDA" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[IMPORTE]"
+                      dataType="numeric"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[IMPORTE]"
+                      name="IMPORTE"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\POPULATE FACT TABLES.Paths[Merge Join Output]"
+              endId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Merge Join Output"
+              startId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output]"
+              endId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output1]"
+              endId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\POPULATE FACT TABLES.Paths[Sort Output]"
+              endId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output]" />
+            <path
+              refId="Package\POPULATE FACT TABLES.Paths[Sort Output1]"
+              endId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1959,15 +3298,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="191,42"
+          Size="191.2,41.6"
           Id="Package\POPULATE DIM TABLES"
           TopLeft="583,147" />
         <NodeLayout
-          Size="242,42"
+          Size="241.6,41.6"
           Id="Package\POPULATE DIM TABLES TYPE"
           TopLeft="245.5,148.5" />
         <NodeLayout
-          Size="197,42"
+          Size="196.8,41.6"
           Id="Package\POPULATE FACT TABLES"
           TopLeft="580,365" />
         <EdgeLayout
@@ -2409,29 +3748,49 @@
     design-time-name="Package\POPULATE FACT TABLES">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="172,42"
-          Id="1"
-          TopLeft="120,68" />
+          Size="170.4,41.6"
+          Id="Package\POPULATE FACT TABLES\OLE DB Destination"
+          TopLeft="189.714288945101,327.294122237235" />
         <NodeLayout
-          Size="197,42"
-          Id="16"
-          TopLeft="106,200" />
+          Size="135.2,41.6"
+          Id="Package\POPULATE FACT TABLES\DIM_FECHA"
+          TopLeft="295.42857645969,64.8470597329849" />
+        <NodeLayout
+          Size="110.4,41.6"
+          Id="Package\POPULATE FACT TABLES\VENTA"
+          TopLeft="120.571430624748,50.8235297206364" />
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\POPULATE FACT TABLES\ORDENAR POR FECHA"
+          TopLeft="360.000006130764,138.917648603182" />
         <EdgeLayout
-          Id="33"
-          TopLeft="205.25,110">
+          Id="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output]"
+          TopLeft="363.02857645969,106.447059732985">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,90"
+              EndConnector="70.5714296710735,32.470588870197"
               Start="0,0"
-              End="0,82.5">
+              End="70.5714296710735,24.970588870197">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,82.5" />
+                    End="0,12.2352944350985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.2352944350985"
+                    Point2="0,16.2352944350985"
+                    Point3="4,16.2352944350985" />
+                  <mssgle:LineSegment
+                    End="66.5714296710735,16.2352944350985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.5714296710735,16.2352944350985"
+                    Point2="70.5714296710735,16.2352944350985"
+                    Point3="70.5714296710735,20.2352944350985" />
+                  <mssgle:LineSegment
+                    End="70.5714296710735,24.970588870197" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2441,27 +3800,35 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="120,42"
-          Id="48"
-          TopLeft="368,70" />
-        <NodeLayout
-          Size="145,42"
-          Id="78"
-          TopLeft="361,197" />
+          Size="199.2,41.6"
+          Id="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA"
+          TopLeft="53.7142866290345,141.976472175493" />
         <EdgeLayout
-          Id="99"
-          TopLeft="430.75,112">
+          Id="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output1]"
+          TopLeft="175.771430624748,92.4235297206364">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,85"
+              EndConnector="-22.4571439957133,49.5529424548562"
               Start="0,0"
-              End="0,77.5">
+              End="-22.4571439957133,42.0529424548562">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,77.5" />
+                    End="0,20.7764712274281" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.7764712274281"
+                    Point2="0,24.7764712274281"
+                    Point3="-4,24.7764712274281" />
+                  <mssgle:LineSegment
+                    End="-18.4571439957133,24.7764712274281" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.4571439957133,24.7764712274281"
+                    Point2="-22.4571439957133,24.7764712274281"
+                    Point3="-22.4571439957133,28.7764712274281" />
+                  <mssgle:LineSegment
+                    End="-22.4571439957133,42.0529424548562" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2471,27 +3838,29 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="127,42"
-          Id="104"
-          TopLeft="586,65" />
-        <NodeLayout
-          Size="168,42"
-          Id="119"
-          TopLeft="562,198" />
+          Size="129.6,41.6"
+          Id="Package\POPULATE FACT TABLES\Merge Join"
+          TopLeft="219.428575165418,201.929414192781" />
         <EdgeLayout
-          Id="136"
-          TopLeft="647.75,107">
+          Id="Package\POPULATE FACT TABLES.Paths[Sort Output]"
+          TopLeft="252.914286629035,162.776472175493">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,91"
+              EndConnector="11.0476218697166,39.1529420172879"
               Start="0,0"
-              End="0,83.5">
+              End="11.0476218697166,31.6529420172879">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,83.5" />
+                    End="7.04762186971658,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.04762186971658,0"
+                    Point2="11.0476218697166,0"
+                    Point3="11.0476218697166,4" />
+                  <mssgle:LineSegment
+                    End="11.0476218697166,31.6529420172879" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2500,40 +3869,26 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="116,42"
-          Id="147"
-          TopLeft="864,60" />
-        <NodeLayout
-          Size="177,42"
-          Id="177"
-          TopLeft="824,190" />
         <EdgeLayout
-          Id="194"
-          TopLeft="922,102">
+          Id="Package\POPULATE FACT TABLES.Paths[Sort Output1]"
+          TopLeft="360.000006130764,159.717648603182">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.5,88"
+              EndConnector="-55.504764298679,42.2117655895985"
               Start="0,0"
-              End="-9.5,80.5">
+              End="-55.504764298679,34.7117655895985">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40" />
+                    End="-51.504764298679,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40"
-                    Point2="0,44"
-                    Point3="-4,44" />
+                    Point1="-51.504764298679,0"
+                    Point2="-55.504764298679,0"
+                    Point3="-55.504764298679,4" />
                   <mssgle:LineSegment
-                    End="-5.5,44" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.5,44"
-                    Point2="-9.5,44"
-                    Point3="-9.5,48" />
-                  <mssgle:LineSegment
-                    End="-9.5,80.5" />
+                    End="-55.504764298679,34.7117655895985" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2542,82 +3897,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="247"
-          TopLeft="147,349" />
-        <NodeLayout
-          Size="188,42"
-          Id="268"
-          TopLeft="157,442" />
         <EdgeLayout
-          Id="285"
-          TopLeft="228.5,391">
+          Id="Package\POPULATE FACT TABLES.Paths[Merge Join Output]"
+          TopLeft="284.228575165418,243.529414192781">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="22.5,51"
+              EndConnector="-9.31428622031677,83.7647080444545"
               Start="0,0"
-              End="22.5,43.5">
+              End="-9.31428622031677,76.2647080444545">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="0,37.8823540222272" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="4,25.5" />
+                    Point1="0,37.8823540222272"
+                    Point2="0,41.8823540222272"
+                    Point3="-4,41.8823540222272" />
                   <mssgle:LineSegment
-                    End="18.5,25.5" />
+                    End="-5.31428622031677,41.8823540222272" />
                   <mssgle:CubicBezierSegment
-                    Point1="18.5,25.5"
-                    Point2="22.5,25.5"
-                    Point3="22.5,29.5" />
+                    Point1="-5.31428622031677,41.8823540222272"
+                    Point2="-9.31428622031677,41.8823540222272"
+                    Point3="-9.31428622031677,45.8823540222272" />
                   <mssgle:LineSegment
-                    End="22.5,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="290"
-          TopLeft="452,332" />
-        <NodeLayout
-          Size="159,42"
-          Id="348"
-          TopLeft="448,430" />
-        <EdgeLayout
-          Id="365"
-          TopLeft="518.5,374">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9,56"
-              Start="0,0"
-              End="9,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24"
-                    Point2="0,28"
-                    Point3="4,28" />
-                  <mssgle:LineSegment
-                    End="5,28" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5,28"
-                    Point2="9,28"
-                    Point3="9,32" />
-                  <mssgle:LineSegment
-                    End="9,48.5" />
+                    End="-9.31428622031677,76.2647080444545" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2629,5 +3934,39 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\POPULATE FACT TABLES\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\POPULATE FACT TABLES\DIM_FECHA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\POPULATE FACT TABLES\VENTA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
