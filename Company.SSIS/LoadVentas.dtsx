@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="LoadVentas"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{02FAF27C-0BA5-48E5-A18A-9EC66FEFFB39}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{7B7E9AE7-F95C-4EF8-937D-03CAF9FA9B48}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -40,7 +40,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\Proyectos\VisualStudio\company-data-mart\Data\data.csv">
+          DTS:ConnectionString="D:\Proyectos\company-data-mart\Data\data.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -49,7 +49,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ID_VENTA"
-              DTS:DTSID="{D92BF302-F640-4D23-AB00-955ABC93D629}"
+              DTS:DTSID="{5F6AD6BF-919A-4E63-B789-2E495C3B96FE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -58,7 +58,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ID_TIENDA"
-              DTS:DTSID="{5C4522F2-E594-4BF2-A9B3-B0B2A00F8850}"
+              DTS:DTSID="{31489022-3CB4-4363-9573-ED4DEE4DB9BE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -67,7 +67,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ID_CLIENTE"
-              DTS:DTSID="{10362B68-5FAA-4A42-BF8D-6AB7514D6B3E}"
+              DTS:DTSID="{3DD5A04A-0448-49C6-8581-172E421EF9E9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -76,7 +76,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ID_PRODUCTO"
-              DTS:DTSID="{786F60F9-4249-41E0-98CA-B20F5E2F68E7}"
+              DTS:DTSID="{FFDA1372-6252-41DB-99F1-0F71781D2B08}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -85,7 +85,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FECHA"
-              DTS:DTSID="{4C441D7A-093B-4C95-A9D7-C51981639FC4}"
+              DTS:DTSID="{A5771878-1B11-4A47-B446-B20FF1DEBEB5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -94,7 +94,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MONEDA"
-              DTS:DTSID="{4C1C5D8C-EDDE-4F5D-90F4-A8ED22C917BE}"
+              DTS:DTSID="{A899F588-5E84-42D8-874A-0B6389FED1C7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -103,7 +103,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="IMPORTE"
-              DTS:DTSID="{F7273032-AB44-46E9-9B5A-BE8A9D2E6AA0}"
+              DTS:DTSID="{2A5C0BA7-944E-4267-96A9-23F0D5E9C422}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -614,7 +614,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="133,42"
+          Size="133.333333333334,42"
           Id="Package\Tarea Flujo de datos\VENTA CSV"
           TopLeft="210,94" />
         <NodeLayout
