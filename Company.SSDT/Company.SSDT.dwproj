@@ -36,8 +36,8 @@
       <FullPath>DIM FECHA.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>FACT VENTA.dim</Name>
-      <FullPath>FACT VENTA.dim</FullPath>
+      <Name>DIM MONEDA.dim</Name>
+      <FullPath>DIM MONEDA.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>

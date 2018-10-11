@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="PopulateDatamart"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{39F2C433-ADA9-4A93-AD7F-6DC27EB7C115}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{87E01D37-9375-487C-BB11-675AFDED5033}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,7 +43,6 @@
       DTS:refId="Package\POPULATE DIM TABLES"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="POPULATE DIM TABLES"
-      DTS:Disabled="True"
       DTS:DTSID="{36dc3990-9a98-428d-b3c7-dfd4abcf6bab}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1113,7 +1112,6 @@
       DTS:refId="Package\POPULATE DIM TABLES TYPE"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="POPULATE DIM TABLES TYPE"
-      DTS:Disabled="True"
       DTS:DTSID="{724744C3-94DC-4537-9984-38997A28EFA5}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1929,6 +1927,226 @@
           version="1">
           <components>
             <component
+              refId="Package\POPULATE FACT TABLES\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[FECHAS]"
+                      cachedCodepage="1252"
+                      cachedComparisonFlags="1"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FECHAS"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[FECHAS]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_VENTA]"
+                      cachedDataType="i4"
+                      cachedName="ID_VENTA"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_VENTA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_TIENDA]"
+                      cachedDataType="i4"
+                      cachedName="ID_TIENDA"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_TIENDA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_CLIENTE]"
+                      cachedDataType="i4"
+                      cachedName="ID_CLIENTE"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_CLIENTE]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_PRODUCTO]"
+                      cachedDataType="i4"
+                      cachedName="ID_PRODUCTO"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_PRODUCTO]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IMPORTE]"
+                      cachedDataType="numeric"
+                      cachedName="IMPORTE"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[IMPORTE]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_MONEDA]"
+                      cachedDataType="i4"
+                      cachedName="ID_MONEDA"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_MONEDA]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[FECHAS]"
+                      cachedCodepage="1252"
+                      cachedComparisonFlags="1"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FECHAS"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[FECHAS]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[ID_FECHA]"
+                      cachedDataType="i4"
+                      cachedName="ID_FECHA"
+                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[ID_FECHA]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FECHAS]"
+                      codePage="1252"
+                      comparisonFlags="1"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FECHAS]"
+                      name="FECHAS"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[FECHAS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_VENTA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_VENTA]"
+                      name="ID_VENTA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_VENTA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_TIENDA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_TIENDA]"
+                      name="ID_TIENDA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_TIENDA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_CLIENTE]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_CLIENTE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_PRODUCTO]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_PRODUCTO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IMPORTE]"
+                      dataType="numeric"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IMPORTE]"
+                      name="IMPORTE"
+                      precision="18"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IMPORTE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_MONEDA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_MONEDA]"
+                      name="ID_MONEDA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID_MONEDA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_FECHA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_FECHA]"
+                      name="ID_FECHA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[ID_FECHA]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\POPULATE FACT TABLES\DIM_FECHA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -2137,212 +2355,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\POPULATE FACT TABLES\Merge Join"
-              componentClassID="Microsoft.MergeJoin"
-              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
-              name="Merge Join"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of join to perform."
-                  name="JoinType"
-                  typeConverter="JoinType">2</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">1</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the null values are treated as equal values."
-                  name="TreatNullsAsEqual">true</property>
-                <property
-                  dataType="System.Int32"
-                  description="Indicates the requested maximum buffers per input before blocking."
-                  name="MaxBuffersPerInput">5</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input]"
-                  hasSideEffects="true"
-                  name="Merge Join Left Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[FECHAS]"
-                      cachedCodepage="1252"
-                      cachedComparisonFlags="1"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="FECHAS"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[FECHAS]" />
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_VENTA]"
-                      cachedDataType="i4"
-                      cachedName="ID_VENTA"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_VENTA]" />
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_TIENDA]"
-                      cachedDataType="i4"
-                      cachedName="ID_TIENDA"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_TIENDA]" />
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_CLIENTE]"
-                      cachedDataType="i4"
-                      cachedName="ID_CLIENTE"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_CLIENTE]" />
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_PRODUCTO]"
-                      cachedDataType="i4"
-                      cachedName="ID_PRODUCTO"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_PRODUCTO]" />
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[MONEDA]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="MONEDA"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[MONEDA]" />
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[IMPORTE]"
-                      cachedDataType="numeric"
-                      cachedName="IMPORTE"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[IMPORTE]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input]"
-                  hasSideEffects="true"
-                  name="Merge Join Right Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input].Columns[FECHAS]"
-                      cachedCodepage="1252"
-                      cachedComparisonFlags="1"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="FECHAS"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[FECHAS]" />
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input].Columns[ID_FECHA]"
-                      cachedDataType="i4"
-                      cachedName="ID_FECHA"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output].Columns[ID_FECHA]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output]"
-                  name="Merge Join Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]"
-                      dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]"
-                      name="ID_VENTA">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_VENTA]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_TIENDA]"
-                      dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_TIENDA]"
-                      name="ID_TIENDA">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_TIENDA]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_CLIENTE]"
-                      dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_CLIENTE]"
-                      name="ID_CLIENTE">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_CLIENTE]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_PRODUCTO]"
-                      dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_PRODUCTO]"
-                      name="ID_PRODUCTO">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[ID_PRODUCTO]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[MONEDA]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[MONEDA]"
-                      name="MONEDA">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[MONEDA]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[IMPORTE]"
-                      dataType="numeric"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[IMPORTE]"
-                      name="IMPORTE"
-                      precision="18"
-                      scale="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input].Columns[IMPORTE]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_FECHA]"
-                      dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_FECHA]"
-                      name="ID_FECHA">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input].Columns[ID_FECHA]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\POPULATE FACT TABLES\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -2419,33 +2431,25 @@
                       cachedDataType="i4"
                       cachedName="ID_VENTA"
                       externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_VENTA]"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]" />
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_VENTA]" />
                     <inputColumn
                       refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TIENDA]"
                       cachedDataType="i4"
                       cachedName="ID_TIENDA"
                       externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIENDA]"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_TIENDA]" />
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_TIENDA]" />
                     <inputColumn
                       refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
                       cachedDataType="i4"
                       cachedName="ID_CLIENTE"
                       externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_CLIENTE]" />
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_CLIENTE]" />
                     <inputColumn
                       refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PRODUCTO]"
                       cachedDataType="i4"
                       cachedName="ID_PRODUCTO"
                       externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_PRODUCTO]" />
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MONEDA]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="MONEDA"
-                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONEDA]"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[MONEDA]" />
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_PRODUCTO]" />
                     <inputColumn
                       refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IMPORTE]"
                       cachedDataType="numeric"
@@ -2453,13 +2457,19 @@
                       cachedPrecision="18"
                       cachedScale="2"
                       externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMPORTE]"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[IMPORTE]" />
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IMPORTE]" />
                     <inputColumn
                       refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_FECHA]"
                       cachedDataType="i4"
                       cachedName="ID_FECHA"
                       externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_FECHA]"
-                      lineageId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output].Columns[ID_FECHA]" />
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_FECHA]" />
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MONEDA]"
+                      cachedDataType="i4"
+                      cachedName="ID_MONEDA"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MONEDA]"
+                      lineageId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID_MONEDA]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2484,17 +2494,15 @@
                       dataType="i4"
                       name="ID_FECHA" />
                     <externalMetadataColumn
-                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONEDA]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="MONEDA" />
-                    <externalMetadataColumn
                       refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMPORTE]"
                       dataType="numeric"
                       name="IMPORTE"
                       precision="18"
                       scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MONEDA]"
+                      dataType="i4"
+                      name="ID_MONEDA" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2524,130 +2532,30 @@
               </outputs>
             </component>
             <component
-              refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA"
+              refId="Package\POPULATE FACT TABLES\Ordenar"
               componentClassID="Microsoft.Sort"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="ORDENAR  FECHA VENTA"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
               version="1">
               <properties>
                 <property
                   dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
                   name="EliminateDuplicates">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Specifies the maximum number of threads to use for sorting."
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
                   expressionType="Notify"
                   name="MaximumThreads">-1</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input]"
-                  name="Sort Input">
+                  refId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[ID_VENTA]"
-                      cachedDataType="i4"
-                      cachedName="ID_VENTA"
-                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_VENTA]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[ID_TIENDA]"
-                      cachedDataType="i4"
-                      cachedName="ID_TIENDA"
-                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_TIENDA]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[ID_CLIENTE]"
-                      cachedDataType="i4"
-                      cachedName="ID_CLIENTE"
-                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[ID_PRODUCTO]"
-                      cachedDataType="i4"
-                      cachedName="ID_PRODUCTO"
-                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[MONEDA]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="MONEDA"
-                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[MONEDA]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[IMPORTE]"
-                      cachedDataType="numeric"
-                      cachedName="IMPORTE"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[IMPORTE]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input].Columns[FECHAS]"
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación].Columns[FECHAS]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
@@ -2656,12 +2564,110 @@
                       <properties>
                         <property
                           dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
+                          description="Especifica las opciones de comparación para datos de caracteres."
                           name="NewComparisonFlags">1</property>
                         <property
                           dataType="System.Int32"
-                          description="Specifies the sort order of the column."
+                          description="Especifica el criterio de ordenación de la columna."
                           name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación].Columns[ID_VENTA]"
+                      cachedDataType="i4"
+                      cachedName="ID_VENTA"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_VENTA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación].Columns[ID_TIENDA]"
+                      cachedDataType="i4"
+                      cachedName="ID_TIENDA"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_TIENDA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación].Columns[ID_CLIENTE]"
+                      cachedDataType="i4"
+                      cachedName="ID_CLIENTE"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación].Columns[ID_PRODUCTO]"
+                      cachedDataType="i4"
+                      cachedName="ID_PRODUCTO"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación].Columns[IMPORTE]"
+                      cachedDataType="numeric"
+                      cachedName="IMPORTE"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[IMPORTE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación].Columns[ID_MONEDA]"
+                      cachedDataType="i4"
+                      cachedName="ID_MONEDA"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_MONEDA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -2670,81 +2676,83 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output]"
+                  refId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación]"
                   isSorted="true"
-                  name="Sort Output">
+                  name="Salida de ordenación">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_VENTA]"
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[FECHAS]"
+                      codePage="1252"
+                      comparisonFlags="1"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[FECHAS]"
+                      name="FECHAS"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[FECHAS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_VENTA]"
                       dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_VENTA]"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_VENTA]"
                       name="ID_VENTA">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_VENTA]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_TIENDA]"
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_TIENDA]"
                       dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_TIENDA]"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_TIENDA]"
                       name="ID_TIENDA">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_TIENDA]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_CLIENTE]"
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_CLIENTE]"
                       dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_CLIENTE]"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_CLIENTE]"
                       name="ID_CLIENTE">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_PRODUCTO]"
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_PRODUCTO]"
                       dataType="i4"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[ID_PRODUCTO]"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_PRODUCTO]"
                       name="ID_PRODUCTO">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[MONEDA]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[MONEDA]"
-                      name="MONEDA">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[MONEDA]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[IMPORTE]"
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[IMPORTE]"
                       dataType="numeric"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[IMPORTE]"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[IMPORTE]"
                       name="IMPORTE"
                       precision="18"
                       scale="2">
@@ -2752,25 +2760,21 @@
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[IMPORTE]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[FECHAS]"
-                      codePage="1252"
-                      comparisonFlags="1"
-                      dataType="str"
-                      length="20"
-                      lineageId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output].Columns[FECHAS]"
-                      name="FECHAS"
-                      sortKeyPosition="1">
+                      refId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_MONEDA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación].Columns[ID_MONEDA]"
+                      name="ID_MONEDA">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[FECHAS]}</property>
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_MONEDA]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3025,8 +3029,10 @@
       ,[ID_TIENDA]
       ,[ID_CLIENTE]
       ,[ID_PRODUCTO]
-    ,CONVERT(varchar(20), FORMAT([FECHA] , 'MM/dd/yyyy HH')) as 'FECHAS'
-      ,[MONEDA]
+      ,CONVERT(varchar(20), FORMAT([FECHA] , 'MM/dd/yyyy HH')) as 'FECHAS'
+      ,case [MONEDA]
+	  when 'D' then 1
+	  when 'S' then 2 end as 'ID_MONEDA'
       ,[IMPORTE]
   FROM [dbo].[VENTA]</property>
                 <property
@@ -3101,17 +3107,6 @@
                       name="ID_PRODUCTO"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[MONEDA]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[MONEDA]"
-                      length="1"
-                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[MONEDA]"
-                      name="MONEDA"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[IMPORTE]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
@@ -3133,6 +3128,15 @@
                       lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[FECHAS]"
                       name="FECHAS"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_MONEDA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_MONEDA]"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].Columns[ID_MONEDA]"
+                      name="ID_MONEDA"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3153,12 +3157,6 @@
                       dataType="i4"
                       name="ID_PRODUCTO" />
                     <externalMetadataColumn
-                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[MONEDA]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="MONEDA" />
-                    <externalMetadataColumn
                       refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[IMPORTE]"
                       dataType="numeric"
                       name="IMPORTE"
@@ -3170,6 +3168,10 @@
                       dataType="str"
                       length="20"
                       name="FECHAS" />
+                    <externalMetadataColumn
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output].ExternalColumns[ID_MONEDA]"
+                      dataType="i4"
+                      name="ID_MONEDA" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3205,12 +3207,10 @@
                       lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[FECHAS]"
                       name="FECHAS" />
                     <outputColumn
-                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[MONEDA]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[MONEDA]"
-                      name="MONEDA" />
+                      refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_MONEDA]"
+                      dataType="i4"
+                      lineageId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[ID_MONEDA]"
+                      name="ID_MONEDA" />
                     <outputColumn
                       refId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Error Output].Columns[IMPORTE]"
                       dataType="numeric"
@@ -3238,28 +3238,28 @@
           </components>
           <paths>
             <path
-              refId="Package\POPULATE FACT TABLES.Paths[Merge Join Output]"
-              endId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Merge Join Output"
-              startId="Package\POPULATE FACT TABLES\Merge Join.Outputs[Merge Join Output]" />
-            <path
               refId="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output]"
               endId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\POPULATE FACT TABLES\DIM_FECHA.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output1]"
-              endId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Inputs[Sort Input]"
+              endId="Package\POPULATE FACT TABLES\Ordenar.Inputs[Entrada de ordenación]"
               name="OLE DB Source Output"
               startId="Package\POPULATE FACT TABLES\VENTA.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\POPULATE FACT TABLES.Paths[Sort Output]"
-              endId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA.Outputs[Sort Output]" />
+              refId="Package\POPULATE FACT TABLES.Paths[Salida de combinación de mezcla]"
+              endId="Package\POPULATE FACT TABLES\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Salida de combinación de mezcla"
+              startId="Package\POPULATE FACT TABLES\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
             <path
-              refId="Package\POPULATE FACT TABLES.Paths[Sort Output1]"
-              endId="Package\POPULATE FACT TABLES\Merge Join.Inputs[Merge Join Right Input]"
+              refId="Package\POPULATE FACT TABLES.Paths[Salida de ordenación]"
+              endId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\POPULATE FACT TABLES\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\POPULATE FACT TABLES.Paths[Sort Output]"
+              endId="Package\POPULATE FACT TABLES\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
               name="Sort Output"
               startId="Package\POPULATE FACT TABLES\ORDENAR POR FECHA.Outputs[Sort Output]" />
           </paths>
@@ -3298,15 +3298,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="191.2,41.6"
+          Size="191.333333333334,41.3333333333334"
           Id="Package\POPULATE DIM TABLES"
           TopLeft="583,147" />
         <NodeLayout
-          Size="241.6,41.6"
+          Size="241.333333333334,41.3333333333334"
           Id="Package\POPULATE DIM TABLES TYPE"
           TopLeft="245.5,148.5" />
         <NodeLayout
-          Size="196.8,41.6"
+          Size="196.666666666667,41.3333333333334"
           Id="Package\POPULATE FACT TABLES"
           TopLeft="580,365" />
         <EdgeLayout
@@ -3360,13 +3360,13 @@
     design-time-name="Package\POPULATE DIM TABLES">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="159,42"
+          Size="158.666666666667,42"
           Id="Package\POPULATE DIM TABLES\DIM_PRODUCTO"
           TopLeft="589,449" />
         <NodeLayout
-          Size="133,42"
+          Size="133.333333333334,42"
           Id="Package\POPULATE DIM TABLES\PRODUCTO"
           TopLeft="593,351" />
         <NodeLayout
@@ -3374,7 +3374,7 @@
           Id="Package\POPULATE DIM TABLES\TIENDA"
           TopLeft="864,60" />
         <NodeLayout
-          Size="177,42"
+          Size="177.333333333334,42"
           Id="Package\POPULATE DIM TABLES\DIM_TIENDA"
           TopLeft="824,190" />
         <NodeLayout
@@ -3382,7 +3382,7 @@
           Id="Package\POPULATE DIM TABLES\CLIENTE"
           TopLeft="368,70" />
         <NodeLayout
-          Size="145,42"
+          Size="145.333333333334,42"
           Id="Package\POPULATE DIM TABLES\DIM_CLIENTE"
           TopLeft="361,197" />
         <EdgeLayout
@@ -3416,9 +3416,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3452,9 +3450,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3476,9 +3472,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3748,202 +3742,207 @@
     design-time-name="Package\POPULATE FACT TABLES">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\POPULATE FACT TABLES\OLE DB Destination"
-          TopLeft="189.714288945101,327.294122237235" />
+          Size="117.333333333334,42.6666666666667"
+          Id="Package\POPULATE FACT TABLES\Ordenar"
+          TopLeft="105.416665095836,138.999998062849" />
         <NodeLayout
-          Size="135.2,41.6"
-          Id="Package\POPULATE FACT TABLES\DIM_FECHA"
-          TopLeft="295.42857645969,64.8470597329849" />
-        <NodeLayout
-          Size="110.4,41.6"
+          Size="136.666666666667,41.3333333333334"
           Id="Package\POPULATE FACT TABLES\VENTA"
-          TopLeft="120.571430624748,50.8235297206364" />
+          TopLeft="94.7380976763613,50.8235297206364" />
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147.333333333334,41.3333333333334"
           Id="Package\POPULATE FACT TABLES\ORDENAR POR FECHA"
           TopLeft="360.000006130764,138.917648603182" />
-        <EdgeLayout
-          Id="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output]"
-          TopLeft="363.02857645969,106.447059732985">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="70.5714296710735,32.470588870197"
-              Start="0,0"
-              End="70.5714296710735,24.970588870197">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.2352944350985" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.2352944350985"
-                    Point2="0,16.2352944350985"
-                    Point3="4,16.2352944350985" />
-                  <mssgle:LineSegment
-                    End="66.5714296710735,16.2352944350985" />
-                  <mssgle:CubicBezierSegment
-                    Point1="66.5714296710735,16.2352944350985"
-                    Point2="70.5714296710735,16.2352944350985"
-                    Point3="70.5714296710735,20.2352944350985" />
-                  <mssgle:LineSegment
-                    End="70.5714296710735,24.970588870197" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="199.2,41.6"
-          Id="Package\POPULATE FACT TABLES\ORDENAR  FECHA VENTA"
-          TopLeft="53.7142866290345,141.976472175493" />
-        <EdgeLayout
-          Id="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output1]"
-          TopLeft="175.771430624748,92.4235297206364">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-22.4571439957133,49.5529424548562"
-              Start="0,0"
-              End="-22.4571439957133,42.0529424548562">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.7764712274281" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.7764712274281"
-                    Point2="0,24.7764712274281"
-                    Point3="-4,24.7764712274281" />
-                  <mssgle:LineSegment
-                    End="-18.4571439957133,24.7764712274281" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.4571439957133,24.7764712274281"
-                    Point2="-22.4571439957133,24.7764712274281"
-                    Point3="-22.4571439957133,28.7764712274281" />
-                  <mssgle:LineSegment
-                    End="-22.4571439957133,42.0529424548562" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="190.666666666667,42.6666666666667"
+          Id="Package\POPULATE FACT TABLES\Combinación de mezcla"
+          TopLeft="229.583329912275,221.366663745443" />
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\POPULATE FACT TABLES\Merge Join"
-          TopLeft="219.428575165418,201.929414192781" />
+          Size="168,41.3333333333334"
+          Id="Package\POPULATE FACT TABLES\DIM_FECHA"
+          TopLeft="308.345242933883,54.0137265933667" />
+        <NodeLayout
+          Size="170.666666666667,41.3333333333334"
+          Id="Package\POPULATE FACT TABLES\OLE DB Destination"
+          TopLeft="189.714288945101,327.294122237235" />
         <EdgeLayout
           Id="Package\POPULATE FACT TABLES.Paths[Sort Output]"
-          TopLeft="252.914286629035,162.776472175493">
+          TopLeft="433.666672797431,180.250981936515">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.0476218697166,39.1529420172879"
+              EndConnector="-78.3055651073778,41.1156818089277"
               Start="0,0"
-              End="11.0476218697166,31.6529420172879">
+              End="-78.3055651073778,33.6156818089277">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="7.04762186971658,0" />
+                    End="0,20.4641158058669" />
                   <mssgle:CubicBezierSegment
-                    Point1="7.04762186971658,0"
-                    Point2="11.0476218697166,0"
-                    Point3="11.0476218697166,4" />
+                    Point1="0,20.4641158058669"
+                    Point2="0,24.4641158058669"
+                    Point3="-4,24.4641158058669" />
                   <mssgle:LineSegment
-                    End="11.0476218697166,31.6529420172879" />
+                    End="-74.3055651073778,24.4641158058669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-74.3055651073778,24.4641158058669"
+                    Point2="-78.3055651073778,24.4641158058669"
+                    Point3="-78.3055651073778,28.4641158058669" />
+                  <mssgle:LineSegment
+                    End="-78.3055651073778,33.6156818089277" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\POPULATE FACT TABLES.Paths[Sort Output1]"
-          TopLeft="360.000006130764,159.717648603182">
+          Id="Package\POPULATE FACT TABLES.Paths[Salida de ordenación]"
+          TopLeft="164.083331762503,181.666664729516">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-55.504764298679,42.2117655895985"
+              EndConnector="160.833331483106,39.6999990159274"
               Start="0,0"
-              End="-55.504764298679,34.7117655895985">
+              End="160.833331483106,32.1999990159274">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-51.504764298679,0" />
+                    End="0,15.8499995079637" />
                   <mssgle:CubicBezierSegment
-                    Point1="-51.504764298679,0"
-                    Point2="-55.504764298679,0"
-                    Point3="-55.504764298679,4" />
+                    Point1="0,15.8499995079637"
+                    Point2="0,19.8499995079637"
+                    Point3="4,19.8499995079637" />
                   <mssgle:LineSegment
-                    End="-55.504764298679,34.7117655895985" />
+                    End="156.833331483106,19.8499995079637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="156.833331483106,19.8499995079637"
+                    Point2="160.833331483106,19.8499995079637"
+                    Point3="160.833331483106,23.8499995079637" />
+                  <mssgle:LineSegment
+                    End="160.833331483106,32.1999990159274" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\POPULATE FACT TABLES.Paths[Merge Join Output]"
-          TopLeft="284.228575165418,243.529414192781">
+          Id="Package\POPULATE FACT TABLES.Paths[Salida de combinación de mezcla]"
+          TopLeft="324.916663245608,264.03333041211">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.31428622031677,83.7647080444545"
+              EndConnector="-49.869040967174,63.2607918251252"
               Start="0,0"
-              End="-9.31428622031677,76.2647080444545">
+              End="-49.869040967174,55.7607918251252">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.8823540222272" />
+                    End="0,27.6303959125626" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,37.8823540222272"
-                    Point2="0,41.8823540222272"
-                    Point3="-4,41.8823540222272" />
+                    Point1="0,27.6303959125626"
+                    Point2="0,31.6303959125626"
+                    Point3="-4,31.6303959125626" />
                   <mssgle:LineSegment
-                    End="-5.31428622031677,41.8823540222272" />
+                    End="-45.869040967174,31.6303959125626" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.31428622031677,41.8823540222272"
-                    Point2="-9.31428622031677,41.8823540222272"
-                    Point3="-9.31428622031677,45.8823540222272" />
+                    Point1="-45.869040967174,31.6303959125626"
+                    Point2="-49.869040967174,31.6303959125626"
+                    Point3="-49.869040967174,35.6303959125626" />
                   <mssgle:LineSegment
-                    End="-9.31428622031677,76.2647080444545" />
+                    End="-49.869040967174,55.7607918251252" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output1]"
+          TopLeft="163.577381386099,92.1568630539697">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.8431350088793"
+              Start="0,0"
+              End="0,39.3431350088793">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.3431350088793" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\POPULATE FACT TABLES.Paths[OLE DB Source Output]"
+          TopLeft="392.345242933883,95.3470599267">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.3214298635473,43.570588676482"
+              Start="0,0"
+              End="41.3214298635473,36.070588676482">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.785294338241" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.785294338241"
+                    Point2="0,21.785294338241"
+                    Point3="4,21.785294338241" />
+                  <mssgle:LineSegment
+                    End="37.3214298635473,21.785294338241" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.3214298635473,21.785294338241"
+                    Point2="41.3214298635473,21.785294338241"
+                    Point3="41.3214298635473,25.785294338241" />
+                  <mssgle:LineSegment
+                    End="41.3214298635473,36.070588676482" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\POPULATE FACT TABLES\OLE DB Destination">
+    design-time-name="Package\POPULATE FACT TABLES\VENTA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3961,10 +3960,15 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\POPULATE FACT TABLES\VENTA">
+    design-time-name="Package\POPULATE FACT TABLES\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
