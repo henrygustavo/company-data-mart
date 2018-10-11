@@ -1,8 +1,8 @@
 ﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="dc1948ff-640c-4d17-be82-79d18c635414" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>CompanyDataMartDB</ID>
   <Name>CompanyDataMartDB</Name>
-  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
@@ -217,7 +217,7 @@
       <Value>90</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
   <State>Unprocessed</State>
   <Dimensions>
     <Dimension dwd:design-time-name="a3fa5f45-56fb-4cc0-8563-5b483fe3e764">
@@ -246,7 +246,15 @@
         <Attribute dwd:design-time-name="44dc7b6f-ebd4-4e58-a07b-58f55e15e726">
           <AttributeID>ID TIENDA</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="45e1918a-4a85-4af8-925f-945eb2319a55">
+          <AttributeID>NOMBRE</AttributeID>
+        </Attribute>
       </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="696b860e-2605-488e-a86d-28e969682303">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="0f712d08-80bb-4534-b40c-041c272d3563">
       <ID>DIM PRODUCTO</ID>
@@ -274,6 +282,18 @@
         <Attribute dwd:design-time-name="7c0a2536-4e6e-4394-8759-432dd1ddc42b">
           <AttributeID>ID FECHA</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="f5ebe0f0-7c02-45a9-838c-9d687831fc43">
+          <AttributeID>ANIO</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="170c3374-b1dd-4c41-8b67-837364b82f62">
+          <AttributeID>MES</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5605bf7a-eb8c-4983-9e31-dd6c5847a2e9">
+          <AttributeID>DIA</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="95b933fd-1fb8-43a5-a4b9-bc78dbc996a7">
+          <AttributeID>HORA</AttributeID>
+        </Attribute>
       </Attributes>
     </Dimension>
     <Dimension dwd:design-time-name="47b6acf7-56f7-4dc3-bdd1-d6cac74867af">
@@ -299,9 +319,9 @@
     <MeasureGroup dwd:design-time-name="596c4d9f-3821-4c5c-a920-86e81e5344b1">
       <ID>FACT VENTA</ID>
       <Name>FACT VENTA</Name>
-      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
       <State>Unprocessed</State>
       <Measures>
         <Measure dwd:design-time-name="8836e040-4ca3-4a14-91c5-36d2baca95e3">
